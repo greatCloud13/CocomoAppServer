@@ -54,14 +54,15 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         String role = auth.getAuthority();
 
         String token = jwtUtil.createJwt(username, role, 60*60*10L);
-
         response.addHeader("Authorization", "Bearer" + token);
+        System.out.println("로그인 완료");
 
     }
 
     //로그인 실패
     @Override
-    protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) {
+    public void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) {
+
         response.setStatus(401);
     }
 }

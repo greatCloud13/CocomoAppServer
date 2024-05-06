@@ -60,8 +60,8 @@ public class SecurityConfig {
         //경로별 인가 작업
         http
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/login", "/", "/join").permitAll()
-                        .requestMatchers("/admin").hasRole("ADMIN")
+                        .requestMatchers("/login", "/", "/join", "/foods/post", "/foods/list").permitAll()
+                        .requestMatchers("/admin", "/foods/get/{id}").hasRole("ADMIN")
                         .anyRequest().authenticated());
 
         http

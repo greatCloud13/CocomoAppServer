@@ -10,6 +10,7 @@ public class AdminController {
 
     @GetMapping("/admin")
     public String adminP(){
+
         return "admin Controller";
     }
 }
