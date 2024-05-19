@@ -1,5 +1,6 @@
 package com.coco.cocomoappserver.Food.service;
 
+import com.coco.cocomoappserver.Food.dto.FoodListRequestsDto;
 import com.coco.cocomoappserver.Food.dto.FoodRequestsDto;
 import com.coco.cocomoappserver.Food.dto.FoodResponseDto;
 import com.coco.cocomoappserver.Food.entity.Food;
@@ -19,8 +20,10 @@ public class FoodService {
     private final FoodRepository foodRepository;
 
     @Transactional(readOnly = true)
-    public List<FoodResponseDto> getList(){
-        return foodRepository.findAllByOrderByUsernameAsc().stream().map(FoodResponseDto::new).toList();
+    public List<FoodResponseDto> getList(FoodListRequestsDto requestsDto){
+        String username = requestsDto.getUsername();
+        int refnum = requestsDto.getRefnum();
+        return foodRepository.findByUsernameAndRefnumOrderByFoodname(username, refnum).stream().map(FoodResponseDto::new).toList();
     }
 
     @Transactional

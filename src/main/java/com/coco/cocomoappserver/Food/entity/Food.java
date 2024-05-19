@@ -32,6 +32,9 @@ public class Food {
     @Column(nullable = false)
     private String favorite;
 
+    @Column(nullable = false)
+    private int refnum;
+
     public Food(FoodRequestsDto requestDto){
         this.username= requestDto.getUsername();
         this.foodname=requestDto.getFoodname();
@@ -39,5 +42,6 @@ public class Food {
         this.category= requestDto.getCategory();
         this.memo = requestDto.getMemo();
         this.favorite = requestDto.getFavorite();
+        this.refnum = requestDto.getRefnum();
     }
 }

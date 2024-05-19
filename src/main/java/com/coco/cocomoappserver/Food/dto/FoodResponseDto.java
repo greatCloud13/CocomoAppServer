@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class FoodResponseDto {
     private String username;
+    private int refnum;
     private String foodname;
     private String expiredate;
     private String category;
@@ -21,5 +22,6 @@ public class FoodResponseDto {
         this.category = entity.getCategory();
         this.memo = entity.getMemo();
         this.favorite = entity.getFavorite();
+        this.refnum = getRefnum();
     }
 }

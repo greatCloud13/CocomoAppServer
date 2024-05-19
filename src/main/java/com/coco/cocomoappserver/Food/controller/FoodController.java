@@ -1,5 +1,6 @@
 package com.coco.cocomoappserver.Food.controller;
 
+import com.coco.cocomoappserver.Food.dto.FoodListRequestsDto;
 import com.coco.cocomoappserver.Food.dto.FoodRequestsDto;
 import com.coco.cocomoappserver.Food.dto.FoodResponseDto;
 import com.coco.cocomoappserver.Food.service.FoodService;
@@ -15,9 +16,10 @@ public class FoodController{
     private final FoodService foodService;
 
     @GetMapping("/foods/list")
-    public List<FoodResponseDto> getList(){
-        return foodService.getList();
+    public List<FoodResponseDto> getList(@RequestBody FoodListRequestsDto requestsDto){
+        return foodService.getList(requestsDto);
     }
+
     @PostMapping("/foods/post")
     public FoodResponseDto createFood(@RequestBody FoodRequestsDto requestsDto){
         return foodService.createFood(requestsDto);
