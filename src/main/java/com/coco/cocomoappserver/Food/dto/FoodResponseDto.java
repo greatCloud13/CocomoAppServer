@@ -22,6 +22,6 @@ public class FoodResponseDto {
         this.category = entity.getCategory();
         this.memo = entity.getMemo();
         this.favorite = entity.getFavorite();
-        this.refnum = getRefnum();
+        this.refnum = entity.getRefnum();
     }
 }
