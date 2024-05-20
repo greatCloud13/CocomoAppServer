@@ -12,4 +12,10 @@ public interface FoodRepository extends JpaRepository<Food, Long> {
     List<Food> findAllByOrderByUsernameAsc();
 
     List<Food> findByUsernameAndRefnumOrderByFoodname(@Param("username")String username, @Param("refnum")int refnum);
+
+    List<Food> findByUsernameAndRefnumOrderByFoodnameDesc(@Param("username")String username, @Param("refnum")int refnum);
+
+    List<Food> findByUsernameAndRefnumOrderByExpiredate(@Param("username")String username, @Param("refnum")int refnum);
+
+    List<Food> findByUsernameAndRefnumOrderByExpiredateDesc(@Param("username")String username, @Param("refnum")int refnum);
 }

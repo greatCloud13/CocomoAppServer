@@ -26,6 +26,28 @@ public class FoodService {
         return foodRepository.findByUsernameAndRefnumOrderByFoodname(username, refnum).stream().map(FoodResponseDto::new).toList();
     }
 
+    @Transactional(readOnly = true)
+    public List<FoodResponseDto> getListDesc(FoodListRequestsDto requestsDto){
+        String username = requestsDto.getUsername();
+        int refnum = requestsDto.getRefnum();
+        return foodRepository.findByUsernameAndRefnumOrderByFoodnameDesc(username, refnum).stream().map(FoodResponseDto::new).toList();
+
+    }
+
+    @Transactional(readOnly = true)
+    public List<FoodResponseDto> getListOrderByexp(FoodListRequestsDto requestsDto){
+        String username = requestsDto.getUsername();
+        int refnum = requestsDto.getRefnum();
+        return foodRepository.findByUsernameAndRefnumOrderByExpiredate(username, refnum).stream().map(FoodResponseDto::new).toList();
+    }
+
+    @Transactional(readOnly = true)
+    public List<FoodResponseDto> getListOrderByExpDesc(FoodListRequestsDto requestsDto){
+        String username = requestsDto.getUsername();
+        int refnum = requestsDto.getRefnum();
+        return foodRepository.findByUsernameAndRefnumOrderByExpiredateDesc(username, refnum).stream().map(FoodResponseDto::new).toList();
+    }
+
     @Transactional
     public FoodResponseDto createFood(FoodRequestsDto requestsDto){
         Food food = new Food(requestsDto);
