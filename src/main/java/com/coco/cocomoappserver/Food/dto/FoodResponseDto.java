@@ -7,8 +7,9 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 public class FoodResponseDto {
+    private int idx;
     private String username;
-    private int refnum;
+    private String refname;
     private String foodname;
     private String expiredate;
     private String category;
@@ -16,12 +17,13 @@ public class FoodResponseDto {
     private String favorite;
 
     public FoodResponseDto(Food entity){
+        this.idx = entity.getId();
         this.foodname = entity.getFoodname();
         this.username = entity.getUsername();
         this.expiredate = entity.getExpiredate();
         this.category = entity.getCategory();
         this.memo = entity.getMemo();
         this.favorite = entity.getFavorite();
-        this.refnum = entity.getRefnum();
+        this.refname = entity.getRefname();
     }
 }

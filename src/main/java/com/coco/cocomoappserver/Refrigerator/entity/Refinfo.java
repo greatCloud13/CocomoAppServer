@@ -20,11 +20,11 @@ public class Refinfo {
     private String refName;
 
     @Column(nullable = false)
-    private String useranme;
+    private String username;
 
     public Refinfo(RefInfoRequestDto requestDto){
         this.refName = requestDto.getRefname();
-        this.useranme = requestDto.getUsername();
+        this.username = requestDto.getUsername();
     }
 
 }

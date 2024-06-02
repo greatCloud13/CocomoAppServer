@@ -10,5 +10,5 @@ public class FoodRequestsDto {
     private String category;
     private String memo;
     private String favorite;
-    private int refnum;
+    private String refname;
 }

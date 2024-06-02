@@ -11,11 +11,13 @@ import java.util.List;
 public interface FoodRepository extends JpaRepository<Food, Long> {
     List<Food> findAllByOrderByUsernameAsc();
 
-    List<Food> findByUsernameAndRefnumOrderByFoodname(@Param("username")String username, @Param("refnum")int refnum);
 
-    List<Food> findByUsernameAndRefnumOrderByFoodnameDesc(@Param("username")String username, @Param("refnum")int refnum);
 
-    List<Food> findByUsernameAndRefnumOrderByExpiredate(@Param("username")String username, @Param("refnum")int refnum);
+    List<Food> findByUsernameAndRefnameOrderByFoodname(@Param("username")String username, @Param("refname")String refname);
 
-    List<Food> findByUsernameAndRefnumOrderByExpiredateDesc(@Param("username")String username, @Param("refnum")int refnum);
+    List<Food> findByUsernameAndRefnameOrderByFoodnameDesc(@Param("username")String username, @Param("refname")String refname);
+
+    List<Food> findByUsernameAndRefnameOrderByExpiredate(@Param("username")String username, @Param("refname")String refname);
+
+    List<Food> findByUsernameAndRefnameOrderByExpiredateDesc(@Param("username")String username, @Param("refname")String refname);
 }

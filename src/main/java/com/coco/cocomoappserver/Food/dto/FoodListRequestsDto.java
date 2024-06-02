@@ -5,5 +5,5 @@ import lombok.Getter;
 @Getter
 public class FoodListRequestsDto {
     private String username;
-    private int refnum;
+    private String refname;
 }

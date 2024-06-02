@@ -6,14 +6,12 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-public class RefInfoResponseDto {
+public class RefListResponseDto {
     private String refName;
-    private int refNum;
     private String username;
 
-    public RefInfoResponseDto(Refinfo entity){
-        this.refName = entity.getRefName();
-        this.refNum = entity.getRefnum();
-        this.username = entity.getUsername();
+    public RefListResponseDto(Refinfo entity){
+        this.refName=entity.getRefName();
+        this.username=entity.getUsername();
     }
 }

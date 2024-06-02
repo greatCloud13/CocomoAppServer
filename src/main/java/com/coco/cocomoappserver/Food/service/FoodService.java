@@ -19,30 +19,30 @@ public class FoodService {
     @Transactional(readOnly = true)
     public List<FoodResponseDto> getList(FoodListRequestsDto requestsDto){
         String username = requestsDto.getUsername();
-        int refnum = requestsDto.getRefnum();
-        return foodRepository.findByUsernameAndRefnumOrderByFoodname(username, refnum).stream().map(FoodResponseDto::new).toList();
+        String refname = requestsDto.getRefname();
+        return foodRepository.findByUsernameAndRefnameOrderByFoodname(username, refname).stream().map(FoodResponseDto::new).toList();
     }
 
     @Transactional(readOnly = true)
     public List<FoodResponseDto> getListDesc(FoodListRequestsDto requestsDto){
         String username = requestsDto.getUsername();
-        int refnum = requestsDto.getRefnum();
-        return foodRepository.findByUsernameAndRefnumOrderByFoodnameDesc(username, refnum).stream().map(FoodResponseDto::new).toList();
+        String refname = requestsDto.getRefname();
+        return foodRepository.findByUsernameAndRefnameOrderByFoodnameDesc(username, refname).stream().map(FoodResponseDto::new).toList();
 
     }
 
     @Transactional(readOnly = true)
     public List<FoodResponseDto> getListOrderByexp(FoodListRequestsDto requestsDto){
         String username = requestsDto.getUsername();
-        int refnum = requestsDto.getRefnum();
-        return foodRepository.findByUsernameAndRefnumOrderByExpiredate(username, refnum).stream().map(FoodResponseDto::new).toList();
+        String refname = requestsDto.getRefname();
+        return foodRepository.findByUsernameAndRefnameOrderByExpiredate(username, refname).stream().map(FoodResponseDto::new).toList();
     }
 
     @Transactional(readOnly = true)
     public List<FoodResponseDto> getListOrderByExpDesc(FoodListRequestsDto requestsDto){
         String username = requestsDto.getUsername();
-        int refnum = requestsDto.getRefnum();
-        return foodRepository.findByUsernameAndRefnumOrderByExpiredateDesc(username, refnum).stream().map(FoodResponseDto::new).toList();
+        String refname = requestsDto.getRefname();
+        return foodRepository.findByUsernameAndRefnameOrderByExpiredateDesc(username, refname).stream().map(FoodResponseDto::new).toList();
     }
 
     @Transactional
@@ -58,6 +58,16 @@ public class FoodService {
                 ()-> new IllegalArgumentException("해당 항목이 존재하지 않습니다")
         );
     }
+
+    @Transactional
+    public FoodResponseDto updateFood(Long id, FoodRequestsDto requestsDto) throws Exception{
+        Food food = foodRepository.findById(id).orElseThrow(
+                () -> new IllegalArgumentException("no id")
+        );
+        food.update(requestsDto);
+        return new FoodResponseDto(food);
+    }
+
 
 //    @Transactional
 //    public FoodResponseDto updateFood(@PathVariable Long id, @RequestBody FoodRequestsDto requestsDto){

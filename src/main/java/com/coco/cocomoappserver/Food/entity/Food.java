@@ -2,10 +2,14 @@ package com.coco.cocomoappserver.Food.entity;
 
 import com.coco.cocomoappserver.Food.dto.FoodRequestsDto;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 
 @Getter
+@Setter
 @Entity
 @NoArgsConstructor
 public class Food {
@@ -33,7 +37,7 @@ public class Food {
     private String favorite;
 
     @Column(nullable = false)
-    private int refnum;
+    private String refname;
 
     public Food(FoodRequestsDto requestDto){
         this.username= requestDto.getUsername();
@@ -42,6 +46,17 @@ public class Food {
         this.category= requestDto.getCategory();
         this.memo = requestDto.getMemo();
         this.favorite = requestDto.getFavorite();
-        this.refnum = requestDto.getRefnum();
+        this.refname = requestDto.getRefname();
     }
+
+    public void update(FoodRequestsDto requestDto){
+        this.username= requestDto.getUsername();
+        this.foodname=requestDto.getFoodname();
+        this.expiredate= requestDto.getExpiredate();
+        this.category= requestDto.getCategory();
+        this.memo = requestDto.getMemo();
+        this.favorite = requestDto.getFavorite();
+        this.refname = requestDto.getRefname();
+    }
+
 }
