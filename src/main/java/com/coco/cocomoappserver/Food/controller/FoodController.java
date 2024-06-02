@@ -1,9 +1,9 @@
 package com.coco.cocomoappserver.Food.controller;
 
-import com.coco.cocomoappserver.Food.dto.FoodListRequestsDto;
-import com.coco.cocomoappserver.Food.dto.FoodRequestsDto;
-import com.coco.cocomoappserver.Food.dto.FoodResponseDto;
+import com.coco.cocomoappserver.Food.dto.*;
 import com.coco.cocomoappserver.Food.service.FoodService;
+import com.coco.cocomoappserver.Refrigerator.dto.RefInfoResponseDto;
+import com.coco.cocomoappserver.Refrigerator.dto.RefInfoRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +15,9 @@ public class FoodController{
 
     private final FoodService foodService;
 
-    @GetMapping("/foods/list/asc")
+
+
+    @PostMapping("/foods/list/asc")
     public List<FoodResponseDto> getList(@RequestBody FoodListRequestsDto requestsDto){
         return foodService.getList(requestsDto);
     }
@@ -24,6 +26,7 @@ public class FoodController{
     public List<FoodResponseDto> getListDesc(@RequestBody FoodListRequestsDto requestsDto){
         return foodService.getListDesc(requestsDto);
     }
+
 
     @GetMapping("/foods/list/exp_asc")
     public List<FoodResponseDto> getListExpAsc(@RequestBody FoodListRequestsDto requestsDto){
