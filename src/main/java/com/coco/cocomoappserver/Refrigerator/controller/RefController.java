@@ -6,9 +6,7 @@ import com.coco.cocomoappserver.Refrigerator.dto.RefListRequestDto;
 import com.coco.cocomoappserver.Refrigerator.dto.RefListResponseDto;
 import com.coco.cocomoappserver.Refrigerator.service.RefService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.Ref;
 import java.util.List;
@@ -23,9 +21,9 @@ public class RefController {
         return refService.createRef(requestDto);
     }
 
-    @PostMapping("/ref/list")
-    public List<RefListResponseDto> getRefList(@RequestBody RefListRequestDto requestDto){
-        return refService.getRefList(requestDto);
+    @GetMapping("/ref/list/{userid}")
+    public List<RefListResponseDto> getRefList(@PathVariable String userid){
+        return refService.getRefList(userid);
     }
 
 }

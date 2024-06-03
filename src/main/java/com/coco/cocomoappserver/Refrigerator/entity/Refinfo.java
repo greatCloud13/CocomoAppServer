@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class Refinfo {
     @Id
     @Column(nullable = false)
-    private int idRefInfo;
+    private int refid;
 
     @Column(nullable = false)
     private int refnum;

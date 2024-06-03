@@ -25,10 +25,7 @@ public class RefService {
     }
 
     @Transactional(readOnly = true)
-    public List<RefListResponseDto> getRefList(RefListRequestDto requestsDto){
-        String username = requestsDto.getUsername();
-        return refinfoRepository.findByUsernameOrderByRefNameAsc(username).stream().map(RefListResponseDto::new).toList();
+    public List<RefListResponseDto> getRefList(String userid){
+        return refinfoRepository.findByUsernameOrderByRefNameAsc(userid).stream().map(RefListResponseDto::new).toList();
     }
-
-
 }
