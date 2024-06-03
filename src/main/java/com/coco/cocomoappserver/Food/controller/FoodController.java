@@ -5,6 +5,7 @@ import com.coco.cocomoappserver.Food.repository.FoodRepository;
 import com.coco.cocomoappserver.Food.service.FoodService;
 import com.coco.cocomoappserver.Refrigerator.dto.RefInfoResponseDto;
 import com.coco.cocomoappserver.Refrigerator.dto.RefInfoRequestDto;
+import com.sun.net.httpserver.Authenticator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -51,5 +52,10 @@ public class FoodController{
     @GetMapping("/foods/{id}")
     public FoodResponseDto getFood(@PathVariable Long id){
         return foodService.getFood(id);
+    }
+
+    @DeleteMapping("/foods/{id}")
+    public SuccessResponseDto deleteFood(@PathVariable Long id){
+        return foodService.deleteFood(id);
     }
 }
