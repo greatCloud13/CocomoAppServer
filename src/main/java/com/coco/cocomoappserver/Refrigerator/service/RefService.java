@@ -1,9 +1,6 @@
 package com.coco.cocomoappserver.Refrigerator.service;
 
-import com.coco.cocomoappserver.Refrigerator.dto.RefInfoRequestDto;
-import com.coco.cocomoappserver.Refrigerator.dto.RefInfoResponseDto;
-import com.coco.cocomoappserver.Refrigerator.dto.RefListRequestDto;
-import com.coco.cocomoappserver.Refrigerator.dto.RefListResponseDto;
+import com.coco.cocomoappserver.Refrigerator.dto.*;
 import com.coco.cocomoappserver.Refrigerator.entity.Refinfo;
 import com.coco.cocomoappserver.Refrigerator.repository.RefinfoRepository;
 import lombok.RequiredArgsConstructor;
@@ -27,5 +24,14 @@ public class RefService {
     @Transactional(readOnly = true)
     public List<RefListResponseDto> getRefList(String userid){
         return refinfoRepository.findByUsernameOrderByRefNameAsc(userid).stream().map(RefListResponseDto::new).toList();
+    }
+
+    @Transactional
+    public SuccessResponseDto deleteRef(Long id)throws Exception{
+        Refinfo refinfo = refinfoRepository.findById(id).orElseThrow(
+                ()-> new IllegalArgumentException("no id")
+        );
+        refinfoRepository.deleteById(id);
+        return new SuccessResponseDto("true");
     }
 }

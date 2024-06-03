@@ -1,4 +1,4 @@
-package com.coco.cocomoappserver.Food.dto;
+package com.coco.cocomoappserver.Refrigerator.dto;
 
 import lombok.Getter;
 

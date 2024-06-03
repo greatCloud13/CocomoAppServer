@@ -54,10 +54,12 @@ public class FoodService {
     }
 
     @Transactional
-    public SuccessResponseDto deleteFood(Long id){
-        return foodRepository.findById(id).map(FoodResponseDto::new).orElseThrow(
-                ()->new IllegalArgumentException("no content")
+    public SuccessResponseDto deleteFood(Long id)throws Exception{
+        Food food = foodRepository.findById(id).orElseThrow(
+                ()->new IllegalArgumentException("no id")
         );
+        foodRepository.deleteById(id);
+        return new SuccessResponseDto("true");
     }
 
     @Transactional
@@ -75,12 +77,5 @@ public class FoodService {
         food.update(requestsDto);
         return new FoodResponseDto(food);
     }
-
-
-//    @Transactional
-//    public FoodResponseDto updateFood(@PathVariable Long id, @RequestBody FoodRequestsDto requestsDto){
-//        return FoodService.updateFood(id, requestsDto);
-//
-//    }
 
 }

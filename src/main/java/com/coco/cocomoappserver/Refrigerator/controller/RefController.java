@@ -1,9 +1,6 @@
 package com.coco.cocomoappserver.Refrigerator.controller;
 
-import com.coco.cocomoappserver.Refrigerator.dto.RefInfoRequestDto;
-import com.coco.cocomoappserver.Refrigerator.dto.RefInfoResponseDto;
-import com.coco.cocomoappserver.Refrigerator.dto.RefListRequestDto;
-import com.coco.cocomoappserver.Refrigerator.dto.RefListResponseDto;
+import com.coco.cocomoappserver.Refrigerator.dto.*;
 import com.coco.cocomoappserver.Refrigerator.service.RefService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +21,11 @@ public class RefController {
     @GetMapping("/ref/list/{userid}")
     public List<RefListResponseDto> getRefList(@PathVariable String userid){
         return refService.getRefList(userid);
+    }
+
+    @DeleteMapping("/ref/{id}")
+    public SuccessResponseDto deleteRef(@PathVariable Long id) throws Exception {
+        return refService.deleteRef(id);
     }
 
 }

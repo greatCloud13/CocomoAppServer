@@ -55,7 +55,7 @@ public class FoodController{
     }
 
     @DeleteMapping("/foods/{id}")
-    public SuccessResponseDto deleteFood(@PathVariable Long id){
+    public SuccessResponseDto deleteFood(@PathVariable Long id) throws Exception {
         return foodService.deleteFood(id);
     }
 }
