@@ -9,9 +9,6 @@ import java.util.List;
 
 @Repository
 public interface FoodRepository extends JpaRepository<Food, Long> {
-    List<Food> findAllByOrderByUsernameAsc();
-
-
 
     List<Food> findByUsernameAndRefnameOrderByFoodname(@Param("username")String username, @Param("refname")String refname);
 

@@ -3,6 +3,7 @@ package com.coco.cocomoappserver.Food.service;
 import com.coco.cocomoappserver.Food.dto.FoodListRequestsDto;
 import com.coco.cocomoappserver.Food.dto.FoodRequestsDto;
 import com.coco.cocomoappserver.Food.dto.FoodResponseDto;
+import com.coco.cocomoappserver.Food.dto.SuccessResponseDto;
 import com.coco.cocomoappserver.Food.entity.Food;
 import com.coco.cocomoappserver.Food.repository.FoodRepository;
 import org.springframework.transaction.annotation.Transactional;
@@ -53,9 +54,16 @@ public class FoodService {
     }
 
     @Transactional
+    public SuccessResponseDto deleteFood(Long id){
+        return foodRepository.findById(id).map(FoodResponseDto::new).orElseThrow(
+                ()->new IllegalArgumentException("no content")
+        );
+    }
+
+    @Transactional
     public FoodResponseDto getFood(Long id){
         return foodRepository.findById(id).map(FoodResponseDto::new).orElseThrow(
-                ()-> new IllegalArgumentException("해당 항목이 존재하지 않습니다")
+                ()-> new IllegalArgumentException("no content")
         );
     }
 
