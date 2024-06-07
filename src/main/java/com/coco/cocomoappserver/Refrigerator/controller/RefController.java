@@ -28,4 +28,9 @@ public class RefController {
         return refService.deleteRef(id);
     }
 
+    @DeleteMapping("/ref/clear/{username}")
+    public SuccessResponseDto deleteAllRef(@PathVariable String username)throws Exception{
+        return refService.deleteAllRef(username);
+    }
+
 }

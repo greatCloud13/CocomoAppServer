@@ -12,4 +12,6 @@ public interface RefinfoRepository extends JpaRepository<Refinfo, Long>{
 
     List<Refinfo> findByUsernameOrderByRefNameAsc(@Param("username")String username);
 
+    void deleteAllByUsername(@Param("username")String username);
+
 }

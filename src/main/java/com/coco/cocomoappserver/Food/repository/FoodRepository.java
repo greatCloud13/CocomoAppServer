@@ -17,4 +17,9 @@ public interface FoodRepository extends JpaRepository<Food, Long> {
     List<Food> findByUsernameAndRefnameOrderByExpiredate(@Param("username")String username, @Param("refname")String refname);
 
     List<Food> findByUsernameAndRefnameOrderByExpiredateDesc(@Param("username")String username, @Param("refname")String refname);
+
+    void deleteAllByUsernameAndRefname(@Param("username")String username, @Param("refname")String refname);
+
+    void deleteAllByUsername(@Param("username")String username);
+
 }
