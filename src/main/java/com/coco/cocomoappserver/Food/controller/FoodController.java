@@ -43,10 +43,8 @@ public class FoodController{
     }
 
     @PostMapping("/foods/post")
-    public FoodResponseDto createFood(@RequestPart(value = "request") FoodRequestsDto requestsDto,
-                                      @RequestPart(value = "itemName") String itemName,
-                                      @RequestPart(value = "file", required = false)MultipartFile file) throws IOException {
-        return foodService.createFood(requestsDto, itemName ,file);
+    public FoodResponseDto createFood(@RequestBody FoodRequestsDto requestsDto) throws IOException {
+        return foodService.createFood(requestsDto);
     }
     @PutMapping("/foods/{id}")
     public FoodResponseDto updateFood(@PathVariable Long id, @RequestBody FoodRequestsDto requestsDto) throws Exception {

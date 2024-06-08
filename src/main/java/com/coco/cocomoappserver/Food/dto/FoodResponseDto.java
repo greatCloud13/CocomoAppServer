@@ -15,6 +15,7 @@ public class FoodResponseDto {
     private String category;
     private String memo;
     private String favorite;
+    private String filepath;
 
     public FoodResponseDto(Food entity){
         this.idx = entity.getId();
@@ -25,5 +26,6 @@ public class FoodResponseDto {
         this.memo = entity.getMemo();
         this.favorite = entity.getFavorite();
         this.refname = entity.getRefname();
+        this.filepath = entity.getFilepath();
     }
 }

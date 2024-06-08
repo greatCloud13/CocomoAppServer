@@ -7,10 +7,7 @@ import com.coco.cocomoappserver.Food.repository.RecipeRepository;
 import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
@@ -51,11 +48,7 @@ public class FoodService {
     }
 
     @Transactional
-    public FoodResponseDto createFood(FoodRequestsDto requestsDto, String itemName ,MultipartFile file) throws IOException {
-        String uploadFilename = file.getOriginalFilename();
-        String uploaddir = "C:\\Appserverimage";
-        File saveFile = new File(uploaddir, uploadFilename);
-        file.transferTo(saveFile);
+    public FoodResponseDto createFood(FoodRequestsDto requestsDto) throws IOException {
         Food food = new Food(requestsDto);
         foodRepository.save(food);
         return new FoodResponseDto(food);

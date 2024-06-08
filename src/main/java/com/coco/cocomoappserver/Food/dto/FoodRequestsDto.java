@@ -11,4 +11,5 @@ public class FoodRequestsDto {
     private String memo;
     private String favorite;
     private String refname;
+    private String filepath;
 }

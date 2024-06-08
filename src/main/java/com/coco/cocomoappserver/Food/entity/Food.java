@@ -18,7 +18,7 @@ public class Food {
     @Column(nullable = false)
     private int id;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String username;
 
     @Column(nullable = false)
@@ -30,14 +30,17 @@ public class Food {
     @Column(nullable = false)
     private String category;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String memo;
 
     @Column(nullable = false)
     private String favorite;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String refname;
+
+    @Column(nullable = false)
+    private String filepath;
 
     public Food(FoodRequestsDto requestDto){
         this.username= requestDto.getUsername();
@@ -47,6 +50,7 @@ public class Food {
         this.memo = requestDto.getMemo();
         this.favorite = requestDto.getFavorite();
         this.refname = requestDto.getRefname();
+        this.filepath=requestDto.getFilepath();
     }
 
     public void update(FoodRequestsDto requestDto){
@@ -58,5 +62,4 @@ public class Food {
         this.favorite = requestDto.getFavorite();
         this.refname = requestDto.getRefname();
     }
-
 }
