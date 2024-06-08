@@ -9,4 +9,6 @@ public interface UserRepository extends JpaRepository<UserEntity, Integer> {
 
     //username을 받아 db테이블에서 회원조회
     UserEntity findByUsername(String username);
+
+    void deleteByUsername(String username);
 }

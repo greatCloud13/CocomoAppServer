@@ -1,9 +1,9 @@
 package com.coco.cocomoappserver.JWT.Service;
 
+import com.coco.cocomoappserver.Food.dto.SuccessResponseDto;
 import com.coco.cocomoappserver.JWT.dto.JoinDTO;
 import com.coco.cocomoappserver.JWT.entity.UserEntity;
 import com.coco.cocomoappserver.JWT.repository.UserRepository;
-import org.apache.catalina.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +19,7 @@ public class JoinService {
         this.bCryptPasswordEncoder=bCryptPasswordEncoder;
     }
 
-    public void joinProcess(JoinDTO joinDTO){
+    public SuccessResponseDto joinProcess(JoinDTO joinDTO){
 
         String username = joinDTO.getUsername();
         String password = joinDTO.getPassword();
@@ -29,7 +29,7 @@ public class JoinService {
 
         if(isExist){
 
-            return;
+            return new SuccessResponseDto("false");
         }
 
         UserEntity data = new UserEntity();
@@ -40,5 +40,6 @@ public class JoinService {
 
         userRepository.save(data);
 
+        return new SuccessResponseDto("false");
     }
 }

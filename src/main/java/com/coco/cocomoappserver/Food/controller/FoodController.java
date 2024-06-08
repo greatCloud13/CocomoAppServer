@@ -65,4 +65,5 @@ public class FoodController{
     public List<RecipeResponseDto> getRecipeList(){
         return foodService.getRecipeList();
     }
+
 }

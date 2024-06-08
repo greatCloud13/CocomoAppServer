@@ -61,7 +61,7 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests((auth) -> auth
                         .requestMatchers("/login", "/", "/join", "/foods/post", "/foods/list", "/foods/list/asc", "/foods/list/desc", "/foods/list/exp_asc","/ref/{id}" , "/ref/create", "/ref/list"
-                        , "/foods/{id}", "/ref/list/{id}", "/foods/{id}","/recipe/get","/ref/clear/{username}").permitAll()
+                        , "/foods/{id}", "/ref/list/{id}", "/foods/{id}","/recipe/get","/ref/clear/{username}", "/withreawl/{userid}").permitAll()
                         .requestMatchers("/admin", "/foods/get/{id}").hasRole("ADMIN")
                         .anyRequest().authenticated());
 

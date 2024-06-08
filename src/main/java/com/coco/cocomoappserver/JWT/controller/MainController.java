@@ -1,7 +1,9 @@
 package com.coco.cocomoappserver.JWT.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -13,4 +15,6 @@ public class MainController {
 
         return "Main Controller";
     }
+
+
 }
