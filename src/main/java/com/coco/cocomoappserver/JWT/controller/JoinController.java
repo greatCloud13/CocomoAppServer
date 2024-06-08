@@ -1,5 +1,6 @@
 package com.coco.cocomoappserver.JWT.controller;
 
+import com.coco.cocomoappserver.Food.dto.SuccessResponseDto;
 import com.coco.cocomoappserver.JWT.Service.JoinService;
 import com.coco.cocomoappserver.JWT.dto.JoinDTO;
 import org.springframework.stereotype.Controller;
@@ -17,10 +18,9 @@ public class JoinController {
     }
 
     @PostMapping("/join")
-    public String joinProcess(JoinDTO joinDTO){
-
-        joinService.joinProcess(joinDTO);
-
-        return "ok";
+    public SuccessResponseDto joinProcess(JoinDTO joinDTO){
+        SuccessResponseDto successResponseDto;
+        successResponseDto = joinService.joinProcess(joinDTO);
+        return successResponseDto;
     }
 }
