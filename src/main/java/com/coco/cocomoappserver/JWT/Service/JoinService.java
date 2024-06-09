@@ -42,6 +42,6 @@ public class JoinService {
 
         userRepository.save(data);
 
-        return new SuccessResponseDto("false");
+        return new SuccessResponseDto("true");
     }
 }
