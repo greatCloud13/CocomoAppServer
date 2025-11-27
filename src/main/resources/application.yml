@@ -1,0 +1,34 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: CocomoAppServer
+
+    datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/springdb?allowPublicKeyRetrieval=true&useSSL=false
+      username: springuser
+      password: p@ss
+
+  # SQL 초기화 설정
+  sql:
+  init:
+    mode: always
+
+  # JPA/Hibernate 설정
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        use_sql_comments: true
+    open-in-view: false
+
+  jwt:
+    secret: myJwtSecretKey123456789012345678901234567890
+    access-token-expiration: 900000  # 15분
+    refresh-token-expiration: 604800000  # 7일
