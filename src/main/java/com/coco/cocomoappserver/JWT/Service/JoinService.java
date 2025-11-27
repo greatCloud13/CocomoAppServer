@@ -9,17 +9,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-
+@RequiredArgsConstructor
 public class JoinService {
 
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
-
-    public JoinService(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder){
-
-        this.userRepository=userRepository;
-        this.bCryptPasswordEncoder=bCryptPasswordEncoder;
-    }
 
     public SuccessResponseDto joinProcess(JoinDTO joinDTO){
 

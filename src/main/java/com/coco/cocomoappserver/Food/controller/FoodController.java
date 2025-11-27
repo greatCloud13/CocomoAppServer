@@ -1,15 +1,10 @@
 package com.coco.cocomoappserver.Food.controller;
 
 import com.coco.cocomoappserver.Food.dto.*;
-import com.coco.cocomoappserver.Food.repository.FoodRepository;
-import com.coco.cocomoappserver.Food.repository.RecipeRepository;
 import com.coco.cocomoappserver.Food.service.FoodService;
-import com.coco.cocomoappserver.Refrigerator.dto.RefInfoResponseDto;
-import com.coco.cocomoappserver.Refrigerator.dto.RefInfoRequestDto;
-import com.sun.net.httpserver.Authenticator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
+
 
 import java.io.IOException;
 import java.util.List;

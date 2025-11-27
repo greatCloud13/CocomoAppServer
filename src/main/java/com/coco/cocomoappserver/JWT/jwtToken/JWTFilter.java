@@ -2,6 +2,7 @@ package com.coco.cocomoappserver.JWT.jwtToken;
 
 import com.coco.cocomoappserver.JWT.dto.CustomUserDetails;
 import com.coco.cocomoappserver.JWT.entity.UserEntity;
+
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -12,8 +13,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
-
 public class JWTFilter extends OncePerRequestFilter {
+
 
     private final JWTUtil jwtUtil;
 
@@ -27,7 +28,7 @@ public class JWTFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
         //request에서 Authorization 헤더를 찾음
-        String authorization= request.getHeader("Authorization");
+        String authorization = request.getHeader("Authorization");
 
         //Authorization 헤더 검증
         if (authorization == null || !authorization.startsWith("Bearer ")) {

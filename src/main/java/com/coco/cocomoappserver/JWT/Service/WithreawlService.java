@@ -4,9 +4,9 @@ import com.coco.cocomoappserver.Food.dto.SuccessResponseDto;
 import com.coco.cocomoappserver.Food.repository.FoodRepository;
 import com.coco.cocomoappserver.JWT.repository.UserRepository;
 import com.coco.cocomoappserver.Refrigerator.repository.RefinfoRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
